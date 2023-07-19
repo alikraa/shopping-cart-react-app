@@ -3,7 +3,7 @@ import { Count } from '../count/count';
 import { ProductProps } from '../../ts/interfaces';
 import './style.scss';
 
-const Product = ({ image, title, price }: ProductProps) => {
+const Product = ({ id, image, title, price, deleteProduct }: ProductProps) => {
   return (
     <section className="product">
       <div className="product__img">
@@ -14,7 +14,7 @@ const Product = ({ image, title, price }: ProductProps) => {
         <Count />
       </div>
       <div className="product__price">{price.toLocaleString('ru')} руб.</div>
-      <ButtonDelete />
+      <ButtonDelete handleClick={deleteProduct} id={id} />
     </section>
   );
 };
