@@ -3,7 +3,16 @@ import { Count } from '../count/count';
 import { ProductProps } from '../../ts/interfaces';
 import './style.scss';
 
-const Product = ({ id, image, title, price, deleteProduct }: ProductProps) => {
+const Product = ({
+  id,
+  image,
+  title,
+  priceTotal,
+  count,
+  deleteProduct,
+  increase,
+  decrease,
+}: ProductProps) => {
   return (
     <section className="product">
       <div className="product__img">
@@ -11,9 +20,16 @@ const Product = ({ id, image, title, price, deleteProduct }: ProductProps) => {
       </div>
       <div className="product__title">{title}</div>
       <div className="product__count">
-        <Count />
+        <Count
+          id={id}
+          count={count}
+          handleClickUp={increase}
+          handleClickDown={decrease}
+        />
       </div>
-      <div className="product__price">{price.toLocaleString('ru')} руб.</div>
+      <div className="product__price">
+        {priceTotal.toLocaleString('ru')} руб.
+      </div>
       <ButtonDelete handleClick={deleteProduct} id={id} />
     </section>
   );
