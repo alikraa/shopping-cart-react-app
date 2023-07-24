@@ -7,6 +7,7 @@ interface ProductProps {
   deleteProduct: (id: number) => void;
   increase: (id: number) => void;
   decrease: (id: number) => void;
+  changeValue: (id: number, value: string) => void;
 }
 
 interface ButtonDeleteProps {
@@ -19,6 +20,7 @@ interface CountProps {
   count: number;
   handleClickUp: (id: number) => void;
   handleClickDown: (id: number) => void;
+  handleChange: (id: number, value: string) => void;
 }
 
 interface ProductTypes {

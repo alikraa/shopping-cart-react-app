@@ -12,6 +12,7 @@ const Product = ({
   deleteProduct,
   increase,
   decrease,
+  changeValue,
 }: ProductProps) => {
   return (
     <section className="product">
@@ -25,6 +26,7 @@ const Product = ({
           count={count}
           handleClickUp={increase}
           handleClickDown={decrease}
+          handleChange={changeValue}
         />
       </div>
       <div className="product__price">

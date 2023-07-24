@@ -40,6 +40,21 @@ const Cart = () => {
     );
   };
 
+  const changeValue = (id: number, value: string) => {
+    setData((prev) => {
+      return prev.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            count: Number(value),
+            priceTotal: Number(value) * item.price,
+          };
+        }
+        return item;
+      });
+    });
+  };
+
   return (
     <section className="cart">
       <CartHeader />
@@ -54,6 +69,7 @@ const Cart = () => {
           deleteProduct={deleteProduct}
           increase={increase}
           decrease={decrease}
+          changeValue={changeValue}
         />
       ))}
       <CartFooter />

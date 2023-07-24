@@ -1,7 +1,13 @@
 import { CountProps } from '../../ts/interfaces';
 import './style.scss';
 
-const Count = ({ id, count, handleClickUp, handleClickDown }: CountProps) => {
+const Count = ({
+  id,
+  count,
+  handleClickUp,
+  handleClickDown,
+  handleChange,
+}: CountProps) => {
   return (
     <div className="count">
       <div className="count__box">
@@ -11,6 +17,7 @@ const Count = ({ id, count, handleClickUp, handleClickDown }: CountProps) => {
           min="1"
           max="100"
           value={count}
+          onChange={(event) => handleChange(id, event.currentTarget.value)}
         />
       </div>
       <div className="count__controls">
