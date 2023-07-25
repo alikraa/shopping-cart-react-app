@@ -32,4 +32,15 @@ interface ProductTypes {
   priceTotal: number;
 }
 
-export type { ProductProps, ButtonDeleteProps, CountProps, ProductTypes };
+interface CartFooterProps {
+  totalItems: number;
+  totalPrice: number;
+}
+
+export type {
+  ProductProps,
+  ButtonDeleteProps,
+  CountProps,
+  ProductTypes,
+  CartFooterProps,
+};

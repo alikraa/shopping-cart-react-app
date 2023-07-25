@@ -1,6 +1,7 @@
 import { ButtonDelete } from '../button-delete/button-delete';
 import { Count } from '../count/count';
 import { ProductProps } from '../../ts/interfaces';
+import { priceFormatter } from '../../ts/view';
 import './style.scss';
 
 const Product = ({
@@ -30,7 +31,7 @@ const Product = ({
         />
       </div>
       <div className="product__price">
-        {priceTotal.toLocaleString('ru')} руб.
+        {priceFormatter.format(priceTotal)} руб.
       </div>
       <ButtonDelete handleClick={deleteProduct} id={id} />
     </section>

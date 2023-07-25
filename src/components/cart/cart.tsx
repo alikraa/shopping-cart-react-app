@@ -1,11 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CartFooter } from '../cart-footer/cart-footer';
 import { CartHeader } from '../cart-header/cart-header';
 import { Product } from '../product/product';
-import { products } from '../../ts/products-data';
+import { products, totalElements } from '../../ts/products-data';
 
 const Cart = () => {
   const [data, setData] = useState(products);
+  const [total, setTotal] = useState(totalElements);
+
+  useEffect(() => {
+    setTotal((cart) => {
+      return {
+        ...cart,
+        price: data.reduce((prev, curr) => prev + curr.priceTotal, 0),
+        items: data.reduce((prev, curr) => prev + curr.count, 0),
+      };
+    });
+  }, [data]);
 
   const deleteProduct = (id: number) =>
     setData((prev) => prev.filter((item) => item.id !== id));
@@ -72,7 +83,7 @@ const Cart = () => {
           changeValue={changeValue}
         />
       ))}
-      <CartFooter />
+      <CartFooter totalItems={total.items} totalPrice={total.price} />
     </section>
   );
 };

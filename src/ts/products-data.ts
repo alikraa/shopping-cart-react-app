@@ -24,3 +24,8 @@ export const products = [
     priceTotal: 190000,
   },
 ];
+
+export const totalElements = {
+  price: products.reduce((prev, curr) => prev + curr.priceTotal, 0),
+  items: products.reduce((prev, curr) => prev + curr.count, 0),
+};
